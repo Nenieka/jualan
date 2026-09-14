@@ -1,102 +1,142 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Warung Cingur</title>
+    <title>Warung Rasa Nusantara</title>
 
     <style>
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            background: #fff8ef;
-            color: #3b2416;
+            background: #fffaf2;
+            color: #3d281c;
         }
 
         /* NAVBAR */
+
         nav {
-            background: #7b3f00;
+            background: #4b2e20;
+            color: white;
             padding: 15px 7%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
         }
 
         .logo {
-            color: white;
             font-size: 22px;
             font-weight: bold;
         }
 
-        nav a {
+        .logo small {
+            display: block;
+            font-size: 11px;
+            font-weight: normal;
+            color: #f4d7a1;
+            margin-top: 3px;
+        }
+
+        .menu-nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        .menu-nav a {
             color: white;
             text-decoration: none;
-            margin-left: 20px;
             font-size: 14px;
+            font-weight: bold;
         }
 
-        nav a:hover {
-            text-decoration: underline;
+        .menu-nav a:hover {
+            color: #a9d96f;
         }
+
 
         /* HERO */
+
         .hero {
-            min-height: 430px;
+            min-height: 470px;
+            padding: 60px 8%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 50px 8%;
-            background: #f6d7a7;
+            gap: 40px;
+            background: linear-gradient(
+                120deg,
+                #f9e6c5,
+                #fff8ed
+            );
         }
 
         .hero-text {
             max-width: 520px;
         }
 
+        .hero-text .mini {
+            color: #6c9b3d;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
         .hero-text h1 {
-            font-size: 45px;
-            margin-bottom: 15px;
-            color: #6b3500;
+            font-size: 48px;
+            line-height: 1.1;
+            color: #4b2e20;
+            margin-bottom: 20px;
         }
 
         .hero-text p {
-            font-size: 18px;
-            line-height: 1.6;
+            font-size: 17px;
+            line-height: 1.7;
+            color: #6d625a;
             margin-bottom: 25px;
         }
 
-        .btn {
+        .hero-button {
             display: inline-block;
-            background: #7b3f00;
+            padding: 14px 25px;
+            background: #5d9437;
             color: white;
-            padding: 13px 22px;
-            border-radius: 25px;
+            border-radius: 30px;
             text-decoration: none;
-            border: none;
-            cursor: pointer;
             font-weight: bold;
         }
 
-        .hero-img {
-            width: 350px;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        .hero-button:hover {
+            background: #47772a;
         }
 
+        .hero-image {
+            width: 430px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 30px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+        }
+
+
         /* MENU */
+
         .menu-section {
-            padding: 55px 7%;
+            padding: 60px 7%;
         }
 
         .judul {
@@ -105,125 +145,134 @@
         }
 
         .judul h2 {
-            font-size: 32px;
-            color: #6b3500;
+            color: #4b2e20;
+            font-size: 34px;
             margin-bottom: 8px;
         }
+
+        .judul p {
+            color: #777;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 330px;
+            gap: 30px;
+            align-items: start;
+        }
+
+
+        /* PRODUK */
 
         .produk-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            gap: 20px;
         }
 
         .produk {
             background: white;
-            border-radius: 20px;
+            border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.1);
-            transition: 0.3s;
-        }
-
-        .produk:hover {
-            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
         }
 
         .produk img {
             width: 100%;
-            height: 210px;
+            height: 190px;
             object-fit: cover;
         }
 
         .produk-info {
-            padding: 20px;
+            padding: 18px;
         }
 
         .produk-info h3 {
-            font-size: 22px;
+            font-size: 20px;
             margin-bottom: 8px;
         }
 
         .produk-info p {
             color: #777;
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.5;
-            margin-bottom: 12px;
+            min-height: 58px;
         }
 
         .harga {
-            color: #a34f00;
+            color: #4f8b2e;
             font-size: 19px;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin: 12px 0;
         }
 
         .tambah {
             width: 100%;
-            background: #a34f00;
-            color: white;
             border: none;
-            padding: 12px;
-            border-radius: 12px;
+            background: #5d9437;
+            color: white;
+            padding: 11px;
+            border-radius: 10px;
             cursor: pointer;
             font-weight: bold;
         }
 
         .tambah:hover {
-            background: #7b3f00;
+            background: #47772a;
         }
+
 
         /* KERANJANG */
-        .keranjang-section {
-            background: #f1dfc5;
-            padding: 55px 7%;
-        }
 
-        .keranjang-box {
-            max-width: 750px;
-            margin: auto;
+        .keranjang {
             background: white;
             border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 90px;
         }
 
-        .keranjang-box h2 {
-            text-align: center;
-            color: #6b3500;
+        .keranjang h2 {
+            font-size: 23px;
+            color: #4b2e20;
             margin-bottom: 20px;
-        }
-
-        #keranjang {
-            min-height: 80px;
         }
 
         .kosong {
             text-align: center;
-            color: #888;
-            padding: 25px;
+            color: #999;
+            padding: 25px 5px;
+            font-size: 14px;
         }
 
-        .item {
+        .cart-item {
+            border-bottom: 1px solid #eee;
+            padding: 14px 0;
+        }
+
+        .cart-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #ddd;
-            padding: 15px 0;
-            gap: 10px;
         }
 
-        .item-info {
-            flex: 1;
+        .cart-name {
+            font-weight: bold;
         }
 
-        .item-info strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .item-info span {
+        .cart-price {
+            color: #5d9437;
             font-size: 13px;
-            color: #777;
+            margin-top: 4px;
+        }
+
+        .cart-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
         }
 
         .jumlah {
@@ -233,95 +282,180 @@
         }
 
         .jumlah button {
-            width: 30px;
-            height: 30px;
+            width: 28px;
+            height: 28px;
             border: none;
             border-radius: 50%;
-            background: #7b3f00;
-            color: white;
-            cursor: pointer;
+            background: #e5f1dc;
+            color: #4f8b2e;
             font-weight: bold;
+            cursor: pointer;
+        }
+
+        .jumlah button:hover {
+            background: #5d9437;
+            color: white;
         }
 
         .hapus {
-            background: #c0392b !important;
+            border: none;
+            background: transparent;
+            color: #d64545;
+            cursor: pointer;
+            font-size: 18px;
         }
 
-        .total {
+        .total-box {
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 2px dashed #ddd;
             display: flex;
             justify-content: space-between;
-            font-size: 21px;
             font-weight: bold;
-            margin-top: 25px;
-            padding-top: 20px;
-            border-top: 2px solid #7b3f00;
+            font-size: 19px;
         }
 
-        .pesan {
+        .total-harga {
+            color: #4f8b2e;
+        }
+
+        .whatsapp {
+            display: block;
             width: 100%;
-            margin-top: 20px;
-            padding: 15px;
-            background: #25D366;
-            color: white;
+            margin-top: 18px;
+            padding: 14px;
             border: none;
             border-radius: 12px;
-            font-size: 16px;
+            background: #25d366;
+            color: white;
+            text-align: center;
+            text-decoration: none;
             font-weight: bold;
             cursor: pointer;
         }
 
-        .pesan:hover {
+        .whatsapp:hover {
             background: #1da851;
         }
 
+
+        /* NOMOR */
+
+        .nomor {
+            margin-top: 15px;
+            background: #edf8e8;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .nomor p {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 6px;
+        }
+
+        .nomor a {
+            color: #398024;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .nomor a:hover {
+            text-decoration: underline;
+        }
+
+
         /* TENTANG */
+
         .tentang {
-            padding: 55px 10%;
+            padding: 60px 8%;
+            background: #f4eadb;
+        }
+
+        .tentang-box {
+            max-width: 900px;
+            margin: auto;
             text-align: center;
         }
 
         .tentang h2 {
-            color: #6b3500;
+            color: #4b2e20;
+            font-size: 30px;
             margin-bottom: 15px;
         }
 
         .tentang p {
-            line-height: 1.7;
-            color: #666;
+            color: #6d625a;
+            line-height: 1.8;
         }
 
+
         /* FOOTER */
+
         footer {
-            background: #7b3f00;
+            background: #4b2e20;
             color: white;
             text-align: center;
             padding: 25px;
         }
 
+        footer p {
+            margin: 5px;
+            font-size: 13px;
+        }
+
+
         /* HP */
-        @media (max-width: 768px) {
+
+        @media (max-width: 900px) {
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-image {
+                width: 100%;
+                max-width: 500px;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .keranjang {
+                position: static;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
 
             nav {
                 flex-direction: column;
                 gap: 12px;
             }
 
-            nav a {
-                margin: 0 7px;
+            .menu-nav {
+                gap: 15px;
+            }
+
+            .menu-nav a {
+                font-size: 12px;
             }
 
             .hero {
-                flex-direction: column;
-                text-align: center;
-                gap: 30px;
+                padding: 45px 6%;
             }
 
             .hero-text h1 {
-                font-size: 35px;
+                font-size: 36px;
             }
 
-            .hero-img {
-                width: 100%;
+            .hero-image {
                 height: 250px;
             }
 
@@ -329,219 +463,317 @@
                 grid-template-columns: 1fr;
             }
 
-            .item {
-                flex-wrap: wrap;
+            .menu-section {
+                padding: 45px 6%;
             }
+
         }
+
     </style>
 </head>
 
+
 <body>
 
-<!-- NAVBAR -->
-<nav>
-    <div class="logo">🍽️ Warung Cingur</div>
 
-    <div>
-        <a href="#home">Home</a>
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        🍴 Warung Rasa
+        <small>Rujak Cingur • Es Legen • Gorengan</small>
+    </div>
+
+    <div class="menu-nav">
+        <a href="#home">Beranda</a>
         <a href="#menu">Menu</a>
-        <a href="#keranjang">Keranjang 🛒</a>
+        <a href="#keranjang">🛒 Keranjang</a>
         <a href="#tentang">Tentang</a>
     </div>
+
 </nav>
 
 
+
 <!-- HERO -->
+
 <section class="hero" id="home">
 
     <div class="hero-text">
-        <h1>Rasa Tradisional, Bikin Nagih!</h1>
+
+        <div class="mini">
+            ✨ Cita Rasa Tradisional
+        </div>
+
+        <h1>
+            Enak, Sederhana,
+            Bikin Nagih!
+        </h1>
 
         <p>
-            Nikmati aneka makanan dan minuman khas
-            dengan rasa lezat dan harga bersahabat.
+            Nikmati makanan dan minuman khas
+            dengan rasa yang lezat dan harga
+            yang bersahabat.
         </p>
 
-        <a href="#menu" class="btn">
-            Lihat Menu
+        <a href="#menu" class="hero-button">
+            Lihat Menu →
         </a>
+
     </div>
 
+
     <img
-        class="hero-img"
-        src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80"
-        alt="Makanan">
+        src="Rujak.jpg"
+        class="hero-image"
+        alt="Rujak Cingur">
+
 </section>
+
 
 
 <!-- MENU -->
+
 <section class="menu-section" id="menu">
 
     <div class="judul">
-        <h2>Menu Favorit</h2>
-        <p>Pilih makanan favoritmu 🍴</p>
+
+        <h2>🍽️ Menu Kami</h2>
+
+        <p>
+            Pilihan makanan dan minuman
+            yang siap menemani harimu.
+        </p>
+
     </div>
 
 
-    <div class="produk-container">
+    <div class="content">
 
-        <!-- RUJAK -->
-        <div class="produk">
 
-            <img
-                src="Rujak.jpg"
-                alt="Rujak Cingur">
+        <!-- PRODUK -->
 
-            <div class="produk-info">
+        <div class="produk-container">
 
-                <h3>Rujak Cingur</h3>
 
-                <p>
-                    Rujak khas Jawa Timur dengan
-                    bumbu petis yang nikmat.
-                </p>
+            <!-- RUJAK -->
 
-                <div class="harga">
-                    Rp15.000
+            <div class="produk">
+
+                <img
+                    src="Rujak.jpg"
+                    alt="Rujak Cingur">
+
+                <div class="produk-info">
+
+                    <h3>Rujak Cingur</h3>
+
+                    <p>
+                        Rujak khas Jawa Timur
+                        dengan bumbu petis yang
+                        gurih dan lezat.
+                    </p>
+
+                    <div class="harga">
+                        Rp15.000
+                    </div>
+
+                    <button
+                        class="tambah"
+                        onclick="tambah('Rujak Cingur',15000)">
+                        🛒 Tambah
+                    </button>
+
                 </div>
 
-                <button
-                    class="tambah"
-                    onclick="tambahKeranjang('Rujak Cingur', 15000)">
-                    + Tambah
-                </button>
+            </div>
+
+
+
+            <!-- ES LEGEN -->
+
+            <div class="produk">
+
+                <img
+                    src="Legen.jpg"
+                    alt="Es Legen">
+
+                <div class="produk-info">
+
+                    <h3>Es Legen</h3>
+
+                    <p>
+                        Minuman tradisional
+                        yang segar dan manis.
+                    </p>
+
+                    <div class="harga">
+                        Rp5.000
+                    </div>
+
+                    <button
+                        class="tambah"
+                        onclick="tambah('Es Legen',5000)">
+                        🛒 Tambah
+                    </button>
+
+                </div>
 
             </div>
+
+
+
+            <!-- GORENGAN -->
+
+            <div class="produk">
+
+                <img
+                    src="Gorengan.jpg"
+                    alt="Gorengan">
+
+                <div class="produk-info">
+
+                    <h3>Gorengan</h3>
+
+                    <p>
+                        Gorengan hangat,
+                        gurih dan renyah.
+                    </p>
+
+                    <div class="harga">
+                        Rp1.500
+                    </div>
+
+                    <button
+                        class="tambah"
+                        onclick="tambah('Gorengan',1500)">
+                        🛒 Tambah
+                    </button>
+
+                </div>
+
+            </div>
+
+
         </div>
 
 
-        <!-- ES LEGEN -->
-        <div class="produk">
 
-            <img
-                src="Legen.jpg"
-                alt="Es Legen">
+        <!-- KERANJANG -->
 
-            <div class="produk-info">
+        <div class="keranjang" id="keranjang">
 
-                <h3>Es Legen</h3>
+            <h2>
+                🛒 Keranjang Belanja
+            </h2>
 
-                <p>
-                    Minuman tradisional yang segar
-                    dan cocok diminum bersama rujak.
-                </p>
+            <div id="isiKeranjang">
 
-                <div class="harga">
-                    Rp5.000
+                <div class="kosong">
+                    Keranjang masih kosong.
+                    <br><br>
+                    Pilih menu untuk mulai memesan.
                 </div>
 
-                <button
-                    class="tambah"
-                    onclick="tambahKeranjang('Es Legen', 5000)">
-                    + Tambah
-                </button>
+            </div>
+
+
+            <div class="total-box">
+
+                <span>Total</span>
+
+                <span
+                    class="total-harga"
+                    id="total">
+                    Rp0
+                </span>
 
             </div>
-        </div>
 
 
-        <!-- GORENGAN -->
-        <div class="produk">
+            <button
+                class="whatsapp"
+                onclick="pesanWhatsApp()">
 
-            <img
-                src="Gorengan.jpg"
-                alt="Gorengan">
+                💬 Pesan via WhatsApp
 
-            <div class="produk-info">
+            </button>
 
-                <h3>Gorengan</h3>
+
+            <!-- NOMOR BISA DIPENCET -->
+
+            <div class="nomor">
 
                 <p>
-                    Gorengan hangat, gurih dan renyah
-                    untuk teman santai.
+                    Nomor WhatsApp
                 </p>
 
-                <div class="harga">
-                    Rp1.500
-                </div>
+                <a
+                    href="https://wa.me/6285649708009"
+                    target="_blank">
 
-                <button
-                    class="tambah"
-                    onclick="tambahKeranjang('Gorengan', 1500)">
-                    + Tambah
-                </button>
+                    +62 856-4970-8009
+
+                </a>
+
+                <p>
+                    Klik nomor untuk chat
+                </p>
 
             </div>
+
         </div>
+
 
     </div>
 
 </section>
 
-
-<!-- KERANJANG -->
-<section class="keranjang-section" id="keranjang">
-
-    <div class="keranjang-box">
-
-        <h2>🛒 Pesanan Kamu</h2>
-
-        <div id="keranjang">
-
-            <div class="kosong">
-                Keranjang masih kosong.
-                <br>
-                Yuk pilih menu dulu!
-            </div>
-
-        </div>
-
-        <div class="total">
-            <span>Total</span>
-            <span id="total">Rp0</span>
-        </div>
-
-        <button class="pesan" onclick="pesanWhatsApp()">
-            💬 Pesan melalui WhatsApp
-        </button>
-
-    </div>
-
-</section>
 
 
 <!-- TENTANG -->
+
 <section class="tentang" id="tentang">
 
-    <h2>Tentang Warung Cingur</h2>
+    <div class="tentang-box">
 
-    <p>
-        Warung Cingur menyediakan makanan dan minuman
-        sederhana dengan cita rasa khas Indonesia.
-        Cocok untuk dinikmati bersama keluarga dan teman.
-    </p>
+        <h2>🌿 Tentang Kami</h2>
 
-    <br>
+        <p>
+            Warung Rasa menyediakan makanan dan
+            minuman tradisional yang cocok dinikmati
+            bersama keluarga dan teman.
+        </p>
 
-    <p>
-        📱 WhatsApp: +62 856-4970-8009
-    </p>
+        <br>
+
+        <p>
+            🍴 Rasa Lezat &nbsp; • &nbsp;
+            💰 Harga Bersahabat &nbsp; • &nbsp;
+            🌿 Menu Tradisional
+        </p>
+
+    </div>
 
 </section>
 
 
+
 <!-- FOOTER -->
+
 <footer>
 
     <p>
-        © 2026 Warung Cingur
+        Terima kasih sudah berkunjung 🤎
     </p>
 
     <p>
-        Nikmat • Sederhana • Bersahabat
+        © 2026 Warung Rasa
     </p>
 
 </footer>
+
 
 
 <script>
@@ -549,11 +781,14 @@
     let keranjang = [];
 
 
-    function tambahKeranjang(nama, harga) {
+    // TAMBAH PRODUK
+
+    function tambah(nama, harga) {
 
         let item = keranjang.find(
             produk => produk.nama === nama
         );
+
 
         if (item) {
 
@@ -569,18 +804,19 @@
 
         }
 
+
         tampilkanKeranjang();
 
-        document.getElementById("keranjang")
-            .scrollIntoView({
-                behavior: "smooth"
-            });
     }
 
 
-    function ubahJumlah(index, perubahan) {
 
-        keranjang[index].jumlah += perubahan;
+    // UBAH JUMLAH
+
+    function ubahJumlah(index, angka) {
+
+        keranjang[index].jumlah += angka;
+
 
         if (keranjang[index].jumlah <= 0) {
 
@@ -588,47 +824,66 @@
 
         }
 
+
         tampilkanKeranjang();
+
     }
 
 
-    function hapusItem(index) {
+
+    // HAPUS
+
+    function hapus(index) {
 
         keranjang.splice(index, 1);
 
         tampilkanKeranjang();
-    }
-
-
-    function formatRupiah(angka) {
-
-        return "Rp" + angka.toLocaleString("id-ID");
 
     }
 
+
+
+    // FORMAT RUPIAH
+
+    function rupiah(angka) {
+
+        return "Rp" +
+        angka.toLocaleString("id-ID");
+
+    }
+
+
+
+    // TAMPILKAN KERANJANG
 
     function tampilkanKeranjang() {
 
         let tempat =
-            document.getElementById("keranjang");
+            document.getElementById("isiKeranjang");
 
-        let totalHarga = 0;
+        let total =
+            0;
 
 
         if (keranjang.length === 0) {
 
             tempat.innerHTML = `
+
                 <div class="kosong">
+
                     Keranjang masih kosong.
-                    <br>
-                    Yuk pilih menu dulu!
+                    <br><br>
+                    Pilih menu untuk mulai memesan.
+
                 </div>
+
             `;
 
             document.getElementById("total").innerText =
                 "Rp0";
 
             return;
+
         }
 
 
@@ -640,46 +895,62 @@
             let subtotal =
                 item.harga * item.jumlah;
 
-            totalHarga += subtotal;
+            total += subtotal;
 
 
             tempat.innerHTML += `
 
-                <div class="item">
+                <div class="cart-item">
 
-                    <div class="item-info">
+                    <div class="cart-top">
 
-                        <strong>
-                            ${item.nama}
-                        </strong>
+                        <div>
 
-                        <span>
-                            ${formatRupiah(item.harga)}
-                            × ${item.jumlah}
-                        </span>
+                            <div class="cart-name">
+                                ${item.nama}
+                            </div>
+
+                            <div class="cart-price">
+                                ${rupiah(item.harga)}
+                            </div>
+
+                        </div>
+
+                        <button
+                            class="hapus"
+                            onclick="hapus(${index})">
+
+                            🗑️
+
+                        </button>
 
                     </div>
 
 
-                    <div class="jumlah">
+                    <div class="cart-bottom">
 
-                        <button
-                            onclick="ubahJumlah(${index}, -1)">
-                            −
-                        </button>
+                        <div class="jumlah">
 
-                        <b>${item.jumlah}</b>
+                            <button
+                                onclick="ubahJumlah(${index},-1)">
+                                −
+                            </button>
 
-                        <button
-                            onclick="ubahJumlah(${index}, 1)">
-                            +
-                        </button>
+                            <b>
+                                ${item.jumlah}
+                            </b>
 
-                        <button
-                            class="hapus"
-                            onclick="hapusItem(${index})">
-                            ×
-                        </button>
+                            <button
+                                onclick="ubahJumlah(${index},1)">
+                                +
+                            </button>
+
+                        </div>
+
+
+                        <strong>
+                            ${rupiah(subtotal)}
+                        </strong>
 
                     </div>
 
@@ -691,25 +962,32 @@
 
 
         document.getElementById("total").innerText =
-            formatRupiah(totalHarga);
+            rupiah(total);
 
     }
 
+
+
+    // PESAN WHATSAPP
 
     function pesanWhatsApp() {
 
         if (keranjang.length === 0) {
 
-            alert("Keranjang masih kosong!");
+            alert(
+                "Keranjang masih kosong. Silakan pilih menu terlebih dahulu."
+            );
 
             return;
+
         }
 
 
         let pesan =
-            "Halo Warung Cingur, saya ingin memesan:%0A%0A";
+            "Halo, saya ingin memesan:%0A%0A";
 
-        let totalHarga = 0;
+        let total =
+            0;
 
 
         keranjang.forEach(item => {
@@ -717,7 +995,7 @@
             let subtotal =
                 item.harga * item.jumlah;
 
-            totalHarga += subtotal;
+            total += subtotal;
 
 
             pesan +=
@@ -726,33 +1004,35 @@
                 " x" +
                 item.jumlah +
                 " = " +
-                formatRupiah(subtotal) +
+                rupiah(subtotal) +
                 "%0A";
 
         });
 
 
         pesan +=
-            "%0ATotal: " +
-            formatRupiah(totalHarga);
+            "%0A*Total: " +
+            rupiah(total) +
+            "*";
 
 
         let nomor =
             "6285649708009";
 
 
-        let url =
+        let link =
             "https://wa.me/" +
             nomor +
             "?text=" +
             pesan;
 
 
-        window.open(url, "_blank");
+        window.open(link, "_blank");
 
     }
 
 </script>
+
 
 </body>
 </html>
